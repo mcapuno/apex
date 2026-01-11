@@ -1,0 +1,31 @@
+[
+  {
+    "id": "aliexpress",
+    "name": "AliExpress",
+    "enabled": true,
+    "homeUrl": "https://www.aliexpress.com/",
+    "searchUrlTemplate": "https://www.aliexpress.com/wholesale?SearchText={q}"
+  },
+  {
+    "id": "lazada",
+    "name": "Lazada",
+    "enabled": true,
+    "homeUrl": "https://www.lazada.com/",
+    "searchUrlTemplate": "https://www.lazada.com/catalog/?q={q}"
+  },
+  {
+    "id": "shopee",
+    "name": "Shopee",
+    "enabled": true,
+    "homeUrl": "https://shopee.com/",
+    "searchUrlTemplate": "https://shopee.com/search?keyword={q}"
+  },
+  {
+    "id": "amazon",
+    "name": "Amazon",
+    "enabled": true,
+    "homeUrl": "https://www.amazon.com/",
+    "searchUrlTemplate": "https://www.amazon.com/s?k={q}"
+  }
+]
+
