@@ -21,6 +21,21 @@ export function SearchScreen() {
   const [selectedShopId, setSelectedShopId] = useState(shops[0]?.id ?? "");
   const [isLoading, setIsLoading] = useState(false);
 
+  if (shops.length === 0) {
+    return (
+      <SafeAreaView style={styles.safeArea}>
+        <View style={styles.container}>
+          <Text style={styles.title}>Multi-shop search</Text>
+          <View style={styles.emptyState}>
+            <Text style={styles.emptyStateText}>
+              No shops are enabled. Enable at least one shop in src/config/shops.json.
+            </Text>
+          </View>
+        </View>
+      </SafeAreaView>
+    );
+  }
+
   const selectedShop = shops.find((s) => s.id === selectedShopId) ?? shops[0];
   const url = query ? selectedShop.buildSearchUrl(query) : selectedShop.homeUrl;
 
@@ -63,7 +78,10 @@ export function SearchScreen() {
             return (
               <Pressable
                 key={shop.id}
-                onPress={() => setSelectedShopId(shop.id)}
+                onPress={() => {
+                  setIsLoading(true);
+                  setSelectedShopId(shop.id);
+                }}
                 style={[styles.tab, active ? styles.tabActive : styles.tabInactive]}
               >
                 <Text style={[styles.tabText, active ? styles.tabTextActive : styles.tabTextInactive]}>
@@ -124,6 +142,15 @@ const styles = StyleSheet.create({
   tabText: { fontSize: 13, fontWeight: "600" },
   tabTextActive: { color: "#FFFFFF" },
   tabTextInactive: { color: "#E5E7EB" },
+  emptyState: {
+    marginTop: 10,
+    backgroundColor: "#111827",
+    borderWidth: 1,
+    borderColor: "#1F2937",
+    borderRadius: 14,
+    padding: 14
+  },
+  emptyStateText: { color: "#E5E7EB", fontSize: 14, lineHeight: 20 },
   webContainer: {
     flex: 1,
     overflow: "hidden",
