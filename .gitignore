@@ -1,0 +1,23 @@
+node_modules/
+.expo/
+.expo-shared/
+dist/
+web-build/
+
+# Expo / React Native
+*.jks
+*.keystore
+*.p8
+*.mobileprovision
+*.cer
+
+# OS / editors
+.DS_Store
+.idea/
+.vscode/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
